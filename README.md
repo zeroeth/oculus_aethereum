@@ -23,4 +23,4 @@ The `Views` gather their respective `Models` and render them to the NeoPixel str
 
 This code is object oriented and avoids using `pointers` for simplicity, read more about C++ to learn about `pointers` and `references`
 
-The `#ifndef` lines you see in the header files solve an annoying situation in C/C++ where including a header in multiple places gives a warning that whatever is in it has been defined twice.
+The `#IFNDEF SOMETHING_HERE` lines you see in the header files solve an annoying situation in C/C++ where including a header in multiple places gives a warning that whatever is in it has been defined twice.
