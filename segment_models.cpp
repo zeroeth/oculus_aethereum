@@ -10,5 +10,8 @@ Spot::Spot (double n_position, uint8_t n_width, uint32_t n_color):
 
 void Spot::update ()
 {
+  /* TODO move this to a circler */
+  position = millis() % 1000;
 
+  position *= 0.001;
 }
