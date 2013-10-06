@@ -1,4 +1,4 @@
-Oculus Aethereu
+Oculus Aethereum
 ================
 
 At last my time translocating side arm was complete. I moved a chest of drawers in my bedroom and fired at the blank wall where it once was and lept in. I ended up at the 1964 worlds fair. A curious affair filled with technology that seemed like magic to my eyes. That's when a man dressed in a slim black suit, the finest linens I had ever laid eyes on handed me a pair of goggles. Their ominous glow was not like anything from my time, or this one. The man grasped on to them for a brief moment and uttered "You must find her" and slowly faded from existence.
