@@ -3,6 +3,9 @@
 
 #include "segment_models.h"
 
+#ifndef SEGMENT_VIEWS
+#define SEGMENT_VIEWS
+
 class StripView {
  public:
 
@@ -14,3 +17,5 @@ class StripView {
   void update ();
   void draw   ();
 };
+
+#endif
