@@ -10,10 +10,12 @@
    eye 'render' code which does blend, or average or subtract/multiple
    render black masks as a color
 
+   are refereces bad? for constructors and arrays of things
+
    spot
    wobbler
    circler
-   pulser
+   pulser (frequency of human breath.. like macbook)
 */
 
 
