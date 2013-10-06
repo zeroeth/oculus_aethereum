@@ -7,7 +7,7 @@ class Spot {
  public:
 
   /* Constructor */
-  Spot (uint8_t, uint8_t, uint8_t, uint32_t);
+  Spot (double, uint8_t, uint32_t);
 };
 
 #endif

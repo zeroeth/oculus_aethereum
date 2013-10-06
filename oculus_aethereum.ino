@@ -28,8 +28,7 @@
 
 Adafruit_NeoPixel led_strip = Adafruit_NeoPixel (LED_COUNT, PIN, NEO_GRB + NEO_KHZ800);
 
-Spot spot = Spot (/* eye      */ 0,
-                  /* position */ 5,
+Spot spot = Spot (/* position */ 0.5,
                   /* width    */ 3,
                   /* color    */ led_strip.Color (5, 0, 0));
 

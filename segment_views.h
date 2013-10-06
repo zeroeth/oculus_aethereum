@@ -8,9 +8,12 @@
 
 class StripView {
  public:
+  Adafruit_NeoPixel &strip;
+  uint8_t starting_led;
+  uint8_t length;
 
   /* Constructor */
-  StripView (Adafruit_NeoPixel&, int, int);
+  StripView (Adafruit_NeoPixel&, uint8_t, uint8_t);
 
   /* Methods */
   void add (Spot&);
