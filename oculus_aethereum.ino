@@ -45,7 +45,9 @@ StripView right_eye = StripView (led_strip, RIGHT_EYE_START, LEDS_PER_EYE);
 
 void setup ()
 {
-  /* Aways give your project a safe boot delay so you can re-upload code that uses less current in case your LEDs are too bright */
+  /* Aways give your project a safe boot delay so you can re-upload code when:
+     - it uses too much current when your LEDs are too bright
+     - the serial doesn't respond because of some timing issue */
   delay(5000);
 
   led_strip.begin ();
