@@ -5,8 +5,7 @@
 
 
 /* TODO
-   concept of rendering to individual or both eyes with wrapping
-   contain items in a list (or multiple lists.. one for each or both eyes)
+   concept of rendering both eyes with wrapping
    eye 'render' code which does blend, or average or subtract/multiple
    render black masks as a color
 
@@ -49,8 +48,10 @@ Pulsar pulsar1 =   Pulsar (/* position */ 0.5,
                            /* width    */ 4,
                            /* color    */ led_strip.Color (5, 5, 0));
 
-StripView  left_eye = StripView (led_strip,  LEFT_EYE_START, LEDS_PER_EYE);
-StripView right_eye = StripView (led_strip, RIGHT_EYE_START, LEDS_PER_EYE);
+StripView   left_eye = StripView (led_strip,  LEFT_EYE_START, LEDS_PER_EYE);
+StripView  right_eye = StripView (led_strip, RIGHT_EYE_START, LEDS_PER_EYE);
+
+StripView  both_eyes = StripView (led_strip,  LEFT_EYE_START, LEDS_PER_EYE * 2);
 
 
 void setup ()
