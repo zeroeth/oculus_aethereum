@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>oculus_aethereum.cpp</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="oculus_aethereum.cpp.html">
+                oculus_aethereum.cpp
+              </a>
+            
+              
+              <a class="source" href="segment_models.cpp.html">
+                segment_models.cpp
+              </a>
+            
+              
+              <a class="source" href="segment_models.h.html">
+                segment_models.h
+              </a>
+            
+              
+              <a class="source" href="segment_views.cpp.html">
+                segment_views.cpp
+              </a>
+            
+              
+              <a class="source" href="segment_views.h.html">
+                segment_views.h
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>oculus_aethereum.cpp</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="preprocessor">#include &lt;Adafruit_NeoPixel.h&gt;</span>
+
+<span class="preprocessor">#include "segment_models.h"</span>
+<span class="preprocessor">#include "segment_views.h"</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Initialize</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="preprocessor">#define PIN 4</span>
+<span class="preprocessor">#define LED_COUNT 32</span>
+
+<span class="preprocessor">#define  LEFT_EYE_START 0</span>
+<span class="preprocessor">#define RIGHT_EYE_START 16</span>
+<span class="preprocessor">#define LEDS_PER_EYE 16</span>
+
+Adafruit_NeoPixel led_strip = Adafruit_NeoPixel (LED_COUNT, PIN, NEO_GRB + NEO_KHZ800);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Create all your movers and shakers here!</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>Spot spot1 =         Spot (<span class="comment">/* position */</span> <span class="number">0.5</span>,
+                           <span class="comment">/* width    */</span> <span class="number">2</span>,
+                           <span class="comment">/* color    */</span> led_strip.Color (<span class="number">5</span>, <span class="number">0</span>, <span class="number">5</span>));
+
+Wobbler wobble1 = Wobbler (<span class="comment">/* position */</span> <span class="number">0.0</span>,
+                           <span class="comment">/* width    */</span> <span class="number">4</span>,
+                           <span class="comment">/* color    */</span> led_strip.Color (<span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>));
+
+Circler circle1 = Circler (<span class="comment">/* position */</span> <span class="number">0.0</span>,
+                           <span class="comment">/* width    */</span> <span class="number">6</span>,
+                           <span class="comment">/* color    */</span> led_strip.Color (<span class="number">0</span>, <span class="number">5</span>, <span class="number">5</span>));
+
+Pulsar pulsar1 =   Pulsar (<span class="comment">/* position */</span> <span class="number">0.5</span>,
+                           <span class="comment">/* width    */</span> <span class="number">4</span>,
+                           <span class="comment">/* color    */</span> led_strip.Color (<span class="number">5</span>, <span class="number">5</span>, <span class="number">0</span>));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Create containers for sections of your LED strands/circles.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>StripView   left_eye = StripView (led_strip,  LEFT_EYE_START, LEDS_PER_EYE);
+StripView  right_eye = StripView (led_strip, RIGHT_EYE_START, LEDS_PER_EYE);
+
+StripView  both_eyes = StripView (led_strip,  LEFT_EYE_START, LEDS_PER_EYE * <span class="number">2</span>);
+
+
+<span class="keyword">void</span> setup ()
+{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Aways give your project a safe boot delay so you can re-upload code when:
+  - it uses too much current when your LEDs are too bright
+  - the serial doesn&#39;t respond because of some timing issue</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  delay(<span class="number">5000</span>);
+
+  led_strip.begin ();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Add spots to each section</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>   left_eye.add (wobble1);
+   left_eye.add (spot1  );
+
+  right_eye.add (circle1);
+  right_eye.add (pulsar1);
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Main Loop</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">void</span> loop ()
+{
+   left_eye.clear ();
+  right_eye.clear ();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Update the spots</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>   left_eye.update ();
+  right_eye.update ();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Draw the spots.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>   left_eye.draw ();
+  right_eye.draw ();
+
+  led_strip.show ();
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
