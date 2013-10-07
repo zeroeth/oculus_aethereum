@@ -15,8 +15,10 @@
    width
    speed
 
-   wobbler
    pulser (frequency of human breath.. like macbook)
+   combining multiple features
+   avoid update and add? static list of updates to run, pass in eye to each constructor (might be easier to share themes)
+   convert 8ts to 16ts for longer segments
 */
 
 
@@ -73,7 +75,8 @@ void setup ()
 
 void loop ()
 {
-  clear();
+   left_eye.clear ();
+  right_eye.clear ();
 
    left_eye.update ();
   right_eye.update ();
@@ -82,13 +85,4 @@ void loop ()
   right_eye.draw ();
 
   led_strip.show ();
-}
-
-
-/* TODO move this into a goggle thing, so that clears can also be fades or whatever */
-void clear ()
-{
-  for(uint16_t i=0; i< led_strip.numPixels (); i++) {
-      led_strip.setPixelColor (i, led_strip.Color(0,0,0));
-  }
 }

@@ -26,6 +26,8 @@ class StripView {
   void add (Spot&);
   void update ();
   void draw   ();
+  void clear  ();
+  void draw_at (uint8_t, uint32_t);
 };
 
 #endif
