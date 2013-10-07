@@ -30,11 +30,18 @@ void StripView::draw ()
 {
   /* Draw each spot. TODO figure out where strip view and spot view separate for drawing logic.. does spot view create the dots and colors and then strip over lays those pixels into its buffer (additive or whatever) */
 
-  for(int i = 0; i < spot_count; i++)
+  /* Draw every spot */
+  for (int i = 0; i < spot_count; i++)
   {
     spots[i]->update ();
 
-    strip.setPixelColor (int(spots[i]->position * length) + starting_led, spots[i]->color);
+    /* For width of the spot */
+    for (int w = 0; w < spots[i]->width; w++)
+    {
+      /* Wrap around the segment */
+      int position = (int(spots[i]->position * length) + w);
+      strip.setPixelColor ( (position % length) + starting_led, spots[i]->color);
+    }
   }
 }
 

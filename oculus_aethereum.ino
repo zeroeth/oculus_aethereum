@@ -35,17 +35,16 @@ Spot spot1 =         Spot (/* position */ 0.5,
                            /* width    */ 2,
                            /* color    */ led_strip.Color (5, 0, 5));
 
-Circler circle1 = Circler (/* position */ 0.0,
-                           /* width    */ 6,
-                           /* color    */ led_strip.Color (0, 5, 5));
-
-
 Wobbler wobble1 = Wobbler (/* position */ 0.0,
                            /* width    */ 4,
                            /* color    */ led_strip.Color (0, 0, 5));
 
+Circler circle1 = Circler (/* position */ 0.0,
+                           /* width    */ 6,
+                           /* color    */ led_strip.Color (0, 5, 5));
+
 Pulsar pulsar1 =   Pulsar (/* position */ 0.5,
-                           /* width    */ 1,
+                           /* width    */ 4,
                            /* color    */ led_strip.Color (5, 5, 0));
 
 StripView  left_eye = StripView (led_strip,  LEFT_EYE_START, LEDS_PER_EYE);
