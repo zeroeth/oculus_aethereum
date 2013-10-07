@@ -4,23 +4,6 @@
 #include "segment_views.h"
 
 
-/* TODO
-   concept of rendering both eyes with wrapping
-   eye 'render' code which does blend, or average or subtract/multiple
-   render black masks as a color
-
-   sub pixel rendering..
-   'clear' fading.
-   width
-   speed
-
-   pulser (frequency of human breath.. like macbook)
-   combining multiple features
-   avoid update and add? static list of updates to run, pass in eye to each constructor (might be easier to share themes)
-   convert 8ts to 16ts for longer segments
-*/
-
-
 /* Initialize */
 
 #define PIN 4
