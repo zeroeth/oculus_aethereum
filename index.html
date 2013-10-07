@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Oculus aethereum by zeroeth</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/zeroeth/oculus_aethereum">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Oculus aethereum</h1>
+            <h2>One day I stepped foot into a strange land.. a strange time..</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/zeroeth/oculus_aethereum/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/zeroeth/oculus_aethereum/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <blockquote>
+<p>At last my time trans-location side arm was complete! I quickly moved to my bedroom and moved the giant chest of drawers and fired at the large wall it once was previously obstructing... and lept in. I ended up at the 1964 worlds fair--a curious affair filled with technology that seemed like magic to my mind. And that's when a man dressed in a slim black suit, of the finest fabric I had ever laid eyes on handed me a pair of goggles. The ominous glow was unlike anything from my time, or the present one. The man held them firmly in his grasp for a brief moment and uttered, "You must find her," and slowly faded from existence.</p>
+</blockquote>
+
+<p><img src="https://raw.github.com/zeroeth/oculus_aethereum/master/preview.jpg" alt="preview"></p>
+
+<h1>
+<a name="oculus-aethereum" class="anchor" href="#oculus-aethereum"><span class="octicon octicon-link"></span></a>Oculus Aethereum</h1>
+
+<p>Preview them in action here <a href="http://www.youtube.com/watch?v=HBXvPnb37Y0">http://www.youtube.com/watch?v=HBXvPnb37Y0</a></p>
+
+<h2>
+<a name="instructions" class="anchor" href="#instructions"><span class="octicon octicon-link"></span></a>Instructions</h2>
+
+<ul>
+<li>Get the NeoPixel library and learn more about them at <a href="http://www.adafruit.com/products/1463">http://www.adafruit.com/products/1463</a>
+</li>
+<li>Connect two Adafruit NeoPixel Rings together</li>
+<li>Set the pin you use in the code (Default is 4)</li>
+<li>Add Wobblers, Pulsars, Circlers as you see fit!</li>
+<li>Upload the code using Arduino's software.</li>
+</ul><h2>
+<a name="nerdy-notes-for-the-curious" class="anchor" href="#nerdy-notes-for-the-curious"><span class="octicon octicon-link"></span></a>Nerdy Notes for the Curious</h2>
+
+<p>The style of this code is based on a <code>Model/View</code> pattern: The models (another name for classes that deal with data only) take care updating their information, in this case, the wobble or position of rotation of a light segment. The model's don't need to know about how many leds there are in a circle. The <code>Views</code> gather their respective <code>Models</code> and render them to the NeoPixel strands.</p>
+
+<p>This code is object oriented and tries to use <code>References</code> over <code>Pointers</code> whenever possible. This helps avoid null (empty) links to other objects. Read more at <a href="http://www.learncpp.com/cpp-tutorial/101-constructor-initialization-lists/">http://www.learncpp.com/cpp-tutorial/101-constructor-initialization-lists/</a> and <a href="http://www.cplusplus.com/forum/articles/17820/">http://www.cplusplus.com/forum/articles/17820/</a> to see why the constructors look like they do.</p>
+
+<p>The Spot class has <code>virtual</code> in front of its <code>update()</code> method, this makes sure the proper method is called on its subclasses instead of the original method.</p>
+
+<p>The <code>#IFNDEF SOMETHING_HERE</code> lines you see in the header files solve an annoying situation in C/C++ where including a header in multiple places gives a warning that whatever is in it has been defined twice.</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/zeroeth">zeroeth</a> can be found on <a href="https://github.com/zeroeth/oculus_aethereum">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
