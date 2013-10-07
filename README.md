@@ -1,4 +1,4 @@
-> At last my time trans-location side arm was complete. I quickly moved to my bedroom and moved the giant chest of drawers and fired at the large wall it once was previously obstructing... and lept in. I ended up at the 1964 worlds fair--a curious affair filled with technology that seemed like magic to my mind. And that's when a man dressed in a slim black suit, of the finest fabric I had ever laid eyes on handed me a pair of goggles. The ominous glow was unlike anything from my time, or the present one. The man held them firmly in his grasp for a brief moment and uttered, "You must find her," and slowly faded from existence.
+> At last my time trans-location side arm was complete! I quickly moved to my bedroom and moved the giant chest of drawers and fired at the large wall it once was previously obstructing... and lept in. I ended up at the 1964 worlds fair--a curious affair filled with technology that seemed like magic to my mind. And that's when a man dressed in a slim black suit, of the finest fabric I had ever laid eyes on handed me a pair of goggles. The ominous glow was unlike anything from my time, or the present one. The man held them firmly in his grasp for a brief moment and uttered, "You must find her," and slowly faded from existence.
 
 ![preview](https://raw.github.com/zeroeth/oculus_aethereum/master/preview.jpg)
 
@@ -9,8 +9,10 @@ Oculus Aethereum
 Instructions
 ------------
 
+* Get the NeoPixel library and learn more about them at http://www.adafruit.com/products/1463
 * Connect two Adafruit NeoPixel Rings together
 * Set the pin you use in the code (Default is 4)
+* Add Wobblers, Pulsars, Circlers as you see fit!
 * Upload the code using Arduino's software.
 
 
