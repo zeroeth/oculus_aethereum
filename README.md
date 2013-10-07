@@ -5,6 +5,8 @@
 Oculus Aethereum
 ================
 
+Preview them in action here http://www.youtube.com/watch?v=HBXvPnb37Y0
+
 
 Instructions
 ------------
