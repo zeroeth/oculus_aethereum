@@ -4,7 +4,7 @@
 #include "segment_views.h"
 
 
-/* Initialize */
+// Initialize
 
 #define PIN 4
 #define LED_COUNT 32
@@ -14,6 +14,9 @@
 #define LEDS_PER_EYE 16
 
 Adafruit_NeoPixel led_strip = Adafruit_NeoPixel (LED_COUNT, PIN, NEO_GRB + NEO_KHZ800);
+
+
+// Create all your movers and shakers here!
 
 Spot spot1 =         Spot (/* position */ 0.5,
                            /* width    */ 2,
@@ -31,6 +34,9 @@ Pulsar pulsar1 =   Pulsar (/* position */ 0.5,
                            /* width    */ 4,
                            /* color    */ led_strip.Color (5, 5, 0));
 
+
+// Create containers for sections of your LED strands/circles.
+
 StripView   left_eye = StripView (led_strip,  LEFT_EYE_START, LEDS_PER_EYE);
 StripView  right_eye = StripView (led_strip, RIGHT_EYE_START, LEDS_PER_EYE);
 
@@ -39,12 +45,14 @@ StripView  both_eyes = StripView (led_strip,  LEFT_EYE_START, LEDS_PER_EYE * 2);
 
 void setup ()
 {
-  /* Aways give your project a safe boot delay so you can re-upload code when:
-     - it uses too much current when your LEDs are too bright
-     - the serial doesn't respond because of some timing issue */
+  // Aways give your project a safe boot delay so you can re-upload code when:
+  //   - it uses too much current when your LEDs are too bright
+  //   - the serial doesn't respond because of some timing issue
   delay(5000);
 
   led_strip.begin ();
+
+   // Add spots to each section
 
    left_eye.add (wobble1);
    left_eye.add (spot1  );
@@ -55,16 +63,18 @@ void setup ()
 
 
 
-/* Main Loop */
+// Main Loop
 
 void loop ()
 {
    left_eye.clear ();
   right_eye.clear ();
 
+  // Update the spots
    left_eye.update ();
   right_eye.update ();
 
+  // Draw the spots.
    left_eye.draw ();
   right_eye.draw ();
 

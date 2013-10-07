@@ -6,10 +6,12 @@
 #ifndef SEGMENT_VIEWS
 #define SEGMENT_VIEWS
 
+// StripView takes care of rendering all of the spots and interpreting their positions from 0 to 1 into the strips length. This way the spot models don't know anything specific about how they will end up being shown in the view.
+
 class StripView {
  public:
 
-  /* Variables */
+  // Variables
   Adafruit_NeoPixel &strip;
   uint8_t starting_led;
   uint8_t length;
@@ -18,11 +20,11 @@ class StripView {
   uint8_t spot_count;
 
 
-  /* Constructor */
+  // Constructor
   StripView (Adafruit_NeoPixel&, uint8_t, uint8_t);
 
 
-  /* Methods */
+  // Methods
   void add (Spot&);
   void update ();
   void draw   ();

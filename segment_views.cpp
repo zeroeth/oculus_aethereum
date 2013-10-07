@@ -1,6 +1,8 @@
 #include "segment_views.h"
 
 
+// StripView Constructor
+
 StripView::StripView (Adafruit_NeoPixel& n_strip, uint8_t n_starting_led, uint8_t n_length):
   strip (n_strip),
   starting_led (n_starting_led),
@@ -10,12 +12,16 @@ StripView::StripView (Adafruit_NeoPixel& n_strip, uint8_t n_starting_led, uint8_
 }
 
 
+// Add spot to list of spots for this view
+
 void StripView::add (Spot &spot)
 {
   spots[spot_count] = &spot;
   spot_count++;
 }
 
+
+// Update all spots
 
 void StripView::update ()
 {
@@ -28,23 +34,25 @@ void StripView::update ()
 
 void StripView::draw ()
 {
-  /* Draw each spot. TODO figure out where strip view and spot view separate for drawing logic.. does spot view create the dots and colors and then strip over lays those pixels into its buffer (additive or whatever) */
+  /* TODO figure out where strip view and spot view separate for drawing logic.. does spot view create the dots and colors and then strip over lays those pixels into its buffer (additive or whatever) */
 
-  /* Draw every spot */
+  // Draw every spot
   for (uint8_t i = 0; i < spot_count; i++)
   {
     spots[i]->update ();
 
-    /* For width of the spot */
+    // For width of the spot
     for (uint8_t w = 0; w < spots[i]->width; w++)
     {
-      /* Wrap around the segment */
+      // Wrap around the segment
       uint8_t position = (int(spots[i]->position * length) + w);
       draw_at ((position % length) + starting_led, spots[i]->color);
     }
   }
 }
 
+
+// Clear strip
 
 void StripView::clear ()
 {
@@ -54,6 +62,8 @@ void StripView::clear ()
   }
 }
 
+
+// Draw a color into the strip
 
 void StripView::draw_at (uint8_t position, uint32_t color)
 {

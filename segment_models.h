@@ -6,54 +6,63 @@
 
 extern Adafruit_NeoPixel led_strip; /* FIXME temporary global */
 
+// Spot class: Everything is derived from this static spot
+
 class Spot {
  public:
 
-  /* Variables */
+  // Variables
   double   position;
   uint8_t  width;
   uint32_t color;
 
-  /* Constructor */
+  // Constructor
   Spot (double, uint8_t, uint32_t);
 
-  /* Methods */
+  // Methods
   virtual void update ();
 };
 
 
 
+// Circler draws itself in a loop along your strip or around the circle
+
 class Circler : public Spot {
  public:
 
-  /* Constructor */
+  // Constructor
   Circler (double, uint8_t, uint32_t);
 
-  /* Methods */
+  // Methods
   void update ();
 };
 
 
+
+// Wobbler uses a sin wave to move back and forth
 
 class Wobbler : public Spot {
  public:
 
-  /* Constructor */
+  // Constructor
   Wobbler (double, uint8_t, uint32_t);
 
-  /* Methods */
+  // Methods
   void update ();
 };
 
 
 
+
+// Pulsar uses a sin wave to fade in and out
+
 class Pulsar : public Spot {
  public:
 
-  /* Constructor */
+  // Constructor
   Pulsar (double, uint8_t, uint32_t);
 
-  /* Methods */
+  // Methods
   void update ();
 };
 
