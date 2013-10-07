@@ -18,15 +18,13 @@ Instructions
 * Upload the code using Arduino's software.
 
 
-Nerdy Notes
------------
+Nerdy Notes for the Curious
+---------------------------
 
-The style of this code is based on a `Model/View` pattern:
+The style of this code is based on a `Model/View` pattern: The models (another name for classes that deal with data only) take care updating their information, in this case, the wobble or position of rotation of a light segment. The model's don't need to know about how many leds there are in a circle. The `Views` gather their respective `Models` and render them to the NeoPixel strands.
 
-The models (another name for classes that deal with data only) take care updating their information, in this case, the wobble or position of rotation of a light segment. The model's don't need to know about how many leds there are in a circle.
+This code is object oriented and tries to use `References` over `Pointers` whenever possible. This helps avoid null (empty) links to other objects. Read more at http://www.learncpp.com/cpp-tutorial/101-constructor-initialization-lists/ and http://www.cplusplus.com/forum/articles/17820/ to see why the constructors look like they do.
 
-The `Views` gather their respective `Models` and render them to the NeoPixel strands.
-
-This code is object oriented and avoids using `pointers` for simplicity, read more about C++ to learn about `pointers` and `references`
+The Spot class has `virtual` in front of its `update()` method, this makes sure the proper method is called on its subclasses instead of the original method.
 
 The `#IFNDEF SOMETHING_HERE` lines you see in the header files solve an annoying situation in C/C++ where including a header in multiple places gives a warning that whatever is in it has been defined twice.
