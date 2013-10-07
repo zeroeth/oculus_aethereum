@@ -18,6 +18,12 @@ Instructions
 * Upload the code using Arduino's software.
 
 
+Annotated Source
+----------------
+
+http://zeroeth.github.io/oculus_aethereum/docs/oculus_aethereum.cpp.html
+
+
 Nerdy Notes for the Curious
 ---------------------------
 
