@@ -11,15 +11,9 @@
    * colorer
    ---------
 
-   theme load/unload so we can swap every 10 seconds
-
-   eye 'render' code which does blend, or average or subtract/multiple
-   render black masks as a color
-
-   sub pixel rendering..
-   'clear' fading.
-   width
-   speed
+   - theme load/unload so we can swap every 10 seconds
+   - eye 'render' code which does blend, or average or subtract/multiple
+   - render black masks as a color
 
    pulser (frequency of human breath.. like macbook)
    color changer
@@ -28,16 +22,12 @@
    throbber (widens and shrinks)
    rainbow bar
 
-   combining multiple features
-   avoid update and add? static list of updates to run, pass in eye to each constructor (might be easier to share themes)
-   convert 8ts to 16ts for longer segments
-
-   state based modification of the leds? to avoid needing permutations, you just have each one do something to the whole set..
-   ie color it, rotatet it, mask off portions of it ?
-
-   different signatures for each?
-
-   multiplier? so a wobbler could overlap a few rotations.. and seemingly 'fast' wind
+   - avoid update and add? static list of updates to run, pass in eye to each constructor (might be easier to share themes)
+   - convert 8ts to 16ts for longer segments
+   - combining multiple features or state based modification of the leds? to avoid needing permutations, you just have each one do something to the whole array of color
+     (ie color it, rotatet it, mask off portions of it ?)
+   - different signatures for each type?
+   - multiplier? so a wobbler could overlap a few rotations.. and seemingly 'fast' wind or only rotate 50%
 
    theme:
     3 dots evenly spread, circling with a trail

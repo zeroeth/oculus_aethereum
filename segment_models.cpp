@@ -59,14 +59,8 @@ void Wobbler::update ()
   position *= 0.00628;
 
   // Scale -1/1 to 0/1
-
   position  = (sin(position) + 1) * 0.5;
   position += start_position;
-
-  if(position > 1.0)
-  {
-    position = 1 - position;
-  }
 }
 
 
