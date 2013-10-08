@@ -8,8 +8,10 @@
 
 Spot::Spot (double n_position, uint8_t n_width, uint32_t n_color):
   position (n_position),
-  width (n_width),
-  color (n_color) /* Initializer list */
+  width    (n_width),
+  color    (n_color), /* Initializer list */
+  speed    (1.0),
+  multiply (1.0)
 {
 }
 

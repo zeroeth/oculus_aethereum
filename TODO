@@ -25,6 +25,7 @@
    - avoid update and add? static list of updates to run, pass in eye to each constructor (might be easier to share themes)
    - convert 8ts to 16ts for longer segments
    - combining multiple features or state based modification of the leds? to avoid needing permutations, you just have each one do something to the whole array of color
+     or a spot has all the attributes and you assign it various 'affectors'
      (ie color it, rotatet it, mask off portions of it ?)
    - different signatures for each type?
    - multiplier? so a wobbler could overlap a few rotations.. and seemingly 'fast' wind or only rotate 50%
