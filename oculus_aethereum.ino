@@ -18,7 +18,7 @@ Adafruit_NeoPixel led_strip = Adafruit_NeoPixel (LED_COUNT, PIN, NEO_GRB + NEO_K
 
 // Create all your movers and shakers here!
 
-Spot spot1 =         Spot (/* position */ 0.5,
+Wobbler spot1 =         Wobbler (/* position */ 0.5,
                            /* width    */ 2,
                            /* color    */ led_strip.Color (5, 0, 5));
 
@@ -31,6 +31,10 @@ Circler circle1 = Circler (/* position */ 0.0,
                            /* color    */ led_strip.Color (0, 5, 5));
 
 Pulsar pulsar1 =   Pulsar (/* position */ 0.5,
+                           /* width    */ 4,
+                           /* color    */ led_strip.Color (5, 5, 0));
+
+Pulsar pulsar2 =   Pulsar (/* position */ 0.0,
                            /* width    */ 4,
                            /* color    */ led_strip.Color (5, 5, 0));
 
@@ -80,21 +84,20 @@ void setup ()
    // Add spots to each section
 
    // Theme 1
-   /*
     left_eye.add (wobble1);
     left_eye.add (spot1  );
 
    right_eye.add (circle1);
    right_eye.add (pulsar1);
-   */
-
+   right_eye.add (pulsar2);
 
    // Theme 2
+   /*
     left_eye.add (grower1);
     left_eye.add (grower2);
    right_eye.add (circle2);
    right_eye.add (wobble2);
-
+   */
 
    // Theme 3
    /*

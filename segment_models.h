@@ -16,7 +16,7 @@ class Spot {
   uint8_t  width;
   uint32_t color;
 
-  uint8_t  start_position;
+  double   start_position;
   uint8_t  start_width;
   uint32_t start_color;
 
