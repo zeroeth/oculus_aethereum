@@ -44,8 +44,10 @@ void StripView::draw ()
     // For width of the spot
     for (uint8_t w = 0; w < spots[i]->width; w++)
     {
+      // Map position to strip
+      uint8_t position = (int(spots[i]->position * length) + w) - spots[i]->width/2;
+
       // Wrap around the segment
-      uint8_t position = (int(spots[i]->position * length) + w);
       draw_at ((position % length) + starting_led, spots[i]->color);
     }
   }

@@ -1,4 +1,18 @@
 /* TODO
+
+   SHORTLIST
+   ---------
+   * speed ratio (per second?)
+   * move themes into separate methods/files
+   * blending
+   * fading
+   * width to percent
+   * abstract color
+   * colorer
+   ---------
+
+   theme load/unload so we can swap every 10 seconds
+
    eye 'render' code which does blend, or average or subtract/multiple
    render black masks as a color
 
@@ -17,5 +31,22 @@
    combining multiple features
    avoid update and add? static list of updates to run, pass in eye to each constructor (might be easier to share themes)
    convert 8ts to 16ts for longer segments
+
+   state based modification of the leds? to avoid needing permutations, you just have each one do something to the whole set..
+   ie color it, rotatet it, mask off portions of it ?
+
+   different signatures for each?
+
+   multiplier? so a wobbler could overlap a few rotations.. and seemingly 'fast' wind
+
+   theme:
+    3 dots evenly spread, circling with a trail
+    4 dots doing a small wiggle with a trail
+
+   theme:
+    large static 1/2 arc with another half circle color blending
+
+   theme:
+    each eye has a grower on opposite sides
 */
 

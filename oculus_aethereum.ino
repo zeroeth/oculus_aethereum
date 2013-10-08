@@ -35,6 +35,31 @@ Pulsar pulsar1 =   Pulsar (/* position */ 0.5,
                            /* color    */ led_strip.Color (5, 5, 0));
 
 
+// Theme 2
+
+Grower grower1 =   Grower (/* position */ 0.0,
+                           /* width    */ 16,
+                           /* color    */ led_strip.Color (5, 0, 5));
+
+Grower grower2 =   Grower (/* position */ 0.0,
+                           /* width    */ 8,
+                           /* color    */ led_strip.Color (0, 1, 5));
+
+Circler circle2 = Circler (/* position */ 0.5,
+                           /* width    */ 10,
+                           /* color    */ led_strip.Color (1, 4, 0));
+
+Wobbler wobble2 = Wobbler (/* position */ 0.5,
+                           /* width    */ 2,
+                           /* color    */ led_strip.Color (5, 5, 0));
+
+// Theme 3
+
+Wobbler  long_wobbler = Wobbler(0.0, 24, led_strip.Color (0, 5, 5));
+Wobbler short_wobbler = Wobbler(0.5,  4, led_strip.Color (5, 0, 5));
+Wobbler  spot_wobbler = Wobbler(0.1,  1, led_strip.Color (5, 0, 1));
+
+
 // Create containers for sections of your LED strands/circles.
 
 StripView   left_eye = StripView (led_strip,  LEFT_EYE_START, LEDS_PER_EYE);
@@ -54,11 +79,29 @@ void setup ()
 
    // Add spots to each section
 
-   left_eye.add (wobble1);
-   left_eye.add (spot1  );
+   // Theme 1
+   /*
+    left_eye.add (wobble1);
+    left_eye.add (spot1  );
 
-  right_eye.add (circle1);
-  right_eye.add (pulsar1);
+   right_eye.add (circle1);
+   right_eye.add (pulsar1);
+   */
+
+
+   // Theme 2
+    left_eye.add (grower1);
+    left_eye.add (grower2);
+   right_eye.add (circle2);
+   right_eye.add (wobble2);
+
+
+   // Theme 3
+   /*
+   both_eyes.add ( long_wobbler);
+   both_eyes.add (short_wobbler);
+   both_eyes.add ( spot_wobbler);
+   */
 }
 
 
@@ -69,14 +112,17 @@ void loop ()
 {
    left_eye.clear ();
   right_eye.clear ();
+  both_eyes.clear ();
 
   // Update the spots
    left_eye.update ();
   right_eye.update ();
+  both_eyes.update ();
 
   // Draw the spots.
    left_eye.draw ();
   right_eye.draw ();
+  both_eyes.draw ();
 
   led_strip.show ();
 }

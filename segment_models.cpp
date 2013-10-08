@@ -47,6 +47,7 @@ void Circler::update ()
 Wobbler::Wobbler (double n_position, uint8_t n_width, uint32_t n_color):
   Spot(n_position, n_width, n_color) /* Base Class Constructor */
 {
+  start_position = position;
 }
 
 
@@ -60,6 +61,12 @@ void Wobbler::update ()
   // Scale -1/1 to 0/1
 
   position = (sin(position) + 1) * 0.5;
+  position += start_position;
+
+  if(position > 1.0)
+  {
+    position = 1 - position;
+  }
 }
 
 
@@ -86,4 +93,29 @@ void Pulsar::update ()
 
   /* TODO extract original colors, also maybe store basic color primitives? rgb or hsl on the models */
   color = led_strip.Color (value, value, 0);
+}
+
+
+
+/*** Grower Methods ******************************************/
+
+// Grower Constructor
+
+Grower::Grower (double n_position, uint8_t n_width, uint32_t n_color):
+  Spot(n_position, n_width, n_color) /* Base Class Constructor */
+{
+  start_width = width;
+}
+
+void Grower::update ()
+{
+  double value = millis() % 1000;
+  value *= (M_PI * 0.002);
+
+  // Scale -1/1 to 0/1
+  value = (sin(value) + 1) * 0.5;
+
+  // Width 0 to 10
+  width = value * start_width;
+
 }

@@ -16,6 +16,10 @@ class Spot {
   uint8_t  width;
   uint32_t color;
 
+  uint8_t  start_position;
+  uint8_t  start_width;
+  uint32_t start_color;
+
   // Constructor
   Spot (double, uint8_t, uint32_t);
 
@@ -53,7 +57,6 @@ class Wobbler : public Spot {
 
 
 
-
 // Pulsar uses a sin wave to fade in and out
 
 class Pulsar : public Spot {
@@ -61,6 +64,20 @@ class Pulsar : public Spot {
 
   // Constructor
   Pulsar (double, uint8_t, uint32_t);
+
+  // Methods
+  void update ();
+};
+
+
+
+// Grower uses a sin wave to grow and shrink width
+
+class Grower : public Spot {
+ public:
+
+  // Constructor
+  Grower (double, uint8_t, uint32_t);
 
   // Methods
   void update ();
