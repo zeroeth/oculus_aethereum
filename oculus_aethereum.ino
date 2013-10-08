@@ -89,6 +89,7 @@ void setup ()
     left_eye.add (wobble1);
     left_eye.add (wobble0);
 
+   circle1.speed = -1.0;
    right_eye.add (circle1);
    pulsar1.speed = 2.0;
    right_eye.add (pulsar1);
