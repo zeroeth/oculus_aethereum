@@ -27,6 +27,7 @@ class Spot {
 
   // Methods
   virtual void update ();
+  double percent ();
 };
 
 

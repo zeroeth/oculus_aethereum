@@ -22,11 +22,10 @@ Wobbler wobble0 = Wobbler (/* position */ 0.5,
                            /* width    */ 2,
                            /* color    */ led_strip.Color (5, 0, 5));
 
+
 Wobbler wobble1 = Wobbler (/* position */ 0.0,
                            /* width    */ 4,
                            /* color    */ led_strip.Color (0, 0, 5));
-
-
 
 Circler circle1 = Circler (/* position */ 0.0,
                            /* width    */ 6,
@@ -86,10 +85,12 @@ void setup ()
    // Add spots to each section
 
    // Theme 1
+    wobble0.speed = 0.5;
     left_eye.add (wobble1);
     left_eye.add (wobble0);
 
    right_eye.add (circle1);
+   pulsar1.speed = 2.0;
    right_eye.add (pulsar1);
    right_eye.add (pulsar2);
 

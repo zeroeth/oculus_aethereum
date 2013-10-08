@@ -21,6 +21,13 @@ Spot::Spot (double n_position, uint8_t n_width, uint32_t n_color):
 void Spot::update () { }
 
 
+// Return a 0.0 to 1.0 scaled over (multiply) seconds
+
+double Spot::percent ()
+{
+  return (int(millis()*speed) % 1000) * 0.001;
+}
+
 
 /*** Circler Methods ******************************************/
 
@@ -36,8 +43,7 @@ Circler::Circler (double n_position, uint8_t n_width, uint32_t n_color):
 
 void Circler::update ()
 {
-  position = millis() % 1000;
-  position *= 0.001;
+  position = percent ();
 }
 
 
@@ -53,12 +59,11 @@ Wobbler::Wobbler (double n_position, uint8_t n_width, uint32_t n_color):
 }
 
 
-// Scale from 0 to 6.28 every second
 
 void Wobbler::update ()
 {
-  position = millis() % 1000;
-  position *= 0.00628;
+  // Scale from 0 to 6.28 every second
+  position = percent () * M_PI * 2;
 
   // Scale -1/1 to 0/1
   position  = (sin(position) + 1) * 0.5;
@@ -78,8 +83,7 @@ Pulsar::Pulsar (double n_position, uint8_t n_width, uint32_t n_color):
 
 void Pulsar::update ()
 {
-  double value = millis() % 1000;
-  value *= 0.00628;
+  double value = percent () * M_PI * 2;
 
   // Scale -1/1 to 0/1
   value = (sin(value) + 1) * 0.5;
@@ -105,8 +109,7 @@ Grower::Grower (double n_position, uint8_t n_width, uint32_t n_color):
 
 void Grower::update ()
 {
-  double value = millis() % 1000;
-  value *= (M_PI * 0.002);
+  double value = percent () * M_PI * 2;
 
   // Scale -1/1 to 0/1
   value = (sin(value) + 1) * 0.5;
