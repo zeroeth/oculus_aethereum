@@ -71,3 +71,34 @@ void StripView::draw_at (uint8_t position, uint32_t color)
 {
   strip.setPixelColor (position, color);
 }
+
+
+// Add color into the strip
+
+void StripView::add_at (uint8_t position, uint32_t color)
+{
+  uint32_t added_colors = add_colors (color, strip.getPixelColor (position));
+  strip.setPixelColor (position, added_colors);
+}
+
+
+// Blend two colors together
+
+uint32_t StripView::add_colors (uint32_t color1, uint32_t color2)
+{
+  uint8_t r1,g1,b1;
+  uint8_t r2,g2,b2;
+  uint8_t r3,g3,b3;
+
+  r1 = (uint8_t)(color1 >> 16),
+  g1 = (uint8_t)(color1 >>  8),
+  b1 = (uint8_t)(color1 >>  0);
+
+  r2 = (uint8_t)(color2 >> 16),
+  g2 = (uint8_t)(color2 >>  8),
+  b2 = (uint8_t)(color2 >>  0);
+
+
+  return strip.Color (constrain (r1+r2, 0, 255), constrain (g1+g2, 0, 255), constrain (b1+b2, 0, 255));
+}
+

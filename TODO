@@ -2,13 +2,13 @@
 
    SHORTLIST
    ---------
-   * speed ratio (per second?)
    * move themes into separate methods/files
    * blending
    * fading
    * width to percent
    * abstract color
    * colorer
+   * amplitude multiply
    ---------
 
    - theme load/unload so we can swap every 10 seconds

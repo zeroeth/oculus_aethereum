@@ -79,6 +79,7 @@ void Wobbler::update ()
 Pulsar::Pulsar (double n_position, uint8_t n_width, uint32_t n_color):
   Spot(n_position, n_width, n_color) /* Base Class Constructor */
 {
+  start_color = color;
 }
 
 void Pulsar::update ()
@@ -88,11 +89,15 @@ void Pulsar::update ()
   // Scale -1/1 to 0/1
   value = (sin(value) + 1) * 0.5;
 
-  // Brightness 0 to 5
-  value *= 10;
+  // Extract original r g b
+  uint8_t r,g,b;
 
-  /* TODO extract original colors, also maybe store basic color primitives? rgb or hsl on the models */
-  color = led_strip.Color (value, value, 0);
+  r = (uint8_t)(start_color >> 16),
+  g = (uint8_t)(start_color >>  8),
+  b = (uint8_t)(start_color >>  0);
+
+  // Dim brightness
+  color = led_strip.Color (r * value, g * value, b * value);
 }
 
 
