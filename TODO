@@ -13,6 +13,7 @@
    - theme load/unload so we can swap every 10 seconds
    - eye 'render' code which does blend, or average or subtract/multiple
    - render black masks as a color
+   - higher fidelity color store so fading works?
 
    pulser (frequency of human breath.. like macbook)
    color changer
@@ -41,5 +42,11 @@
 
    theme:
     half circler with faster half circler underneath it
+
+   theme:
+    a bunch of single circlers with speeds at a harmonic to meet eventually. (0.1, 0.2 etc) with additive blending
+
+   theme:
+    two opposite circlers that meet perfectly horizontal
 */
 

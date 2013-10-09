@@ -151,6 +151,9 @@ void setup ()
     left_eye.add (wobble4);
     left_eye.add (wobble5);
     left_eye.add (wobble6);
+   circle3.speed = 0.6;
+   circle4.speed = 0.6;
+   circle5.speed = 0.6;
    right_eye.add (circle3);
    right_eye.add (circle4);
    right_eye.add (circle5);

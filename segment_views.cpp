@@ -67,11 +67,11 @@ void StripView::clear ()
     g = (uint8_t)(start_color >>  8),
     b = (uint8_t)(start_color >>  0);
 
-    // Dim brightness
-    uint32_t color = strip.Color (r * 0.75, g * 0.75, b * 0.75);
+    // Dim brightness FIXME fails to gracefully fade dim colors (because it runs a lot per second)
+    uint32_t color = strip.Color (r * 0.9, g * 0.9, b * 0.9);
 
-    //strip.setPixelColor (i, color);
-    strip.setPixelColor (i, strip.Color(0,0,0));
+    strip.setPixelColor (i, color);
+    //strip.setPixelColor (i, strip.Color(0,0,0));
   }
 }
 
