@@ -60,7 +60,18 @@ void StripView::clear ()
 {
   for(uint8_t i = starting_led; i < (starting_led+length); i++)
   {
-     strip.setPixelColor (i, strip.Color(0,0,0));
+    uint32_t start_color = strip.getPixelColor (i);
+    uint8_t r,g,b;
+
+    r = (uint8_t)(start_color >> 16),
+    g = (uint8_t)(start_color >>  8),
+    b = (uint8_t)(start_color >>  0);
+
+    // Dim brightness
+    uint32_t color = strip.Color (r * 0.75, g * 0.75, b * 0.75);
+
+    //strip.setPixelColor (i, color);
+    strip.setPixelColor (i, strip.Color(0,0,0));
   }
 }
 

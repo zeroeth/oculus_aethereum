@@ -36,6 +36,7 @@ double Spot::percent ()
 Circler::Circler (double n_position, uint8_t n_width, uint32_t n_color):
   Spot(n_position, n_width, n_color) /* Base Class Constructor */
 {
+  start_position = position;
 }
 
 
@@ -43,7 +44,7 @@ Circler::Circler (double n_position, uint8_t n_width, uint32_t n_color):
 
 void Circler::update ()
 {
-  position = percent ();
+  position = percent () + start_position;
 }
 
 

@@ -3,7 +3,6 @@
    SHORTLIST
    ---------
    * move themes into separate methods/files
-   * blending
    * fading
    * width to percent
    * abstract color
