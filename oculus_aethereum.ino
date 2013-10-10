@@ -31,22 +31,21 @@ void setup ()
   // Aways give your project a safe boot delay so you can re-upload code when:
   //   - it uses too much current when your LEDs are too bright
   //   - the serial doesn't respond because of some timing issue
+
   delay(3000);
 
-
   led_strip.begin ();
-
-  Theme::theme4 ();
 }
 
 
-uint8_t current_theme = 0;
-unsigned long last_millis = 0;
 
 // Main Loop
 
 void loop ()
 {
+  // Switch themes every {x} seconds
+  Theme::switch_every (THEME_SWITCH_DELAY);
+
    left_eye.clear ();
   right_eye.clear ();
   both_eyes.clear ();
@@ -62,46 +61,4 @@ void loop ()
   both_eyes.draw ();
 
   led_strip.show ();
-
-
-  // Switch themes every {x} seconds
-
-  if(millis() - last_millis > THEME_SWITCH_DELAY)
-  {
-    last_millis = millis();
-
-     left_eye.unload_theme ();
-    right_eye.unload_theme ();
-    both_eyes.unload_theme ();
-
-    switch(current_theme)
-    {
-      case 0:
-        Theme::theme1 ();
-        break;
-
-      case 1:
-        Theme::theme2 ();
-        break;
-
-      case 2:
-        Theme::theme3 ();
-        break;
-
-      case 3:
-        Theme::themeX ();
-        break;
-
-      case 4:
-        Theme::theme4 ();
-        break;
-
-      default:
-        Theme::broken ();
-        break;
-    }
-
-    current_theme++;
-    current_theme %= 4;
-  }
 }

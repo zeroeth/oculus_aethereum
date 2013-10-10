@@ -6,8 +6,10 @@
    * clock like theme (one rotates per click of other)
    * amplitude multiply
    * width to percent
-   * abstract color
+   * view starting offset change
+   * abstract color and brightness rendering
    * fading
+   * percent offset (for fading between multiple items..)
    ---------
 
    - theme load/unload so we can swap every 10 seconds
