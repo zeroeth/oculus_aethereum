@@ -14,6 +14,8 @@
 #define RIGHT_EYE_START 16
 #define LEDS_PER_EYE 16
 
+#define THEME_SWITCH_DELAY 10000 // Milliseconds
+
 Adafruit_NeoPixel led_strip = Adafruit_NeoPixel (LED_COUNT, PIN, NEO_GRB + NEO_KHZ800);
 
 
@@ -39,7 +41,7 @@ void setup ()
 
 
 uint8_t current_theme = 0;
-uint16_t last_millis  = 0;
+unsigned long last_millis = 0;
 
 // Main Loop
 
@@ -62,9 +64,9 @@ void loop ()
   led_strip.show ();
 
 
-  // Switch themes every 10 seconds
+  // Switch themes every {x} seconds
 
-  if(millis() - last_millis > 10000)
+  if(millis() - last_millis > THEME_SWITCH_DELAY)
   {
     last_millis = millis();
 

@@ -2,7 +2,8 @@
 
    SHORTLIST
    ---------
-   * move themes into separate methods/files
+   * remove similar theme
+   * clock like theme (one rotates per click of other)
    * amplitude multiply
    * width to percent
    * abstract color
