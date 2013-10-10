@@ -3,11 +3,10 @@
    SHORTLIST
    ---------
    * move themes into separate methods/files
-   * fading
+   * amplitude multiply
    * width to percent
    * abstract color
-   * colorer
-   * amplitude multiply
+   * fading
    ---------
 
    - theme load/unload so we can swap every 10 seconds
@@ -22,9 +21,11 @@
    throbber (widens and shrinks)
    rainbow bar
 
+   - pointers unavoidable because of scope of objects? unless they are global. Safe way to use pointers? to avoid nulls.
+
    - avoid update and add? static list of updates to run, pass in eye to each constructor (might be easier to share themes)
    - convert 8ts to 16ts for longer segments
-   - combining multiple features or state based modification of the leds? to avoid needing permutations, you just have each one do something to the whole array of color
+   **** THIS combining multiple features or state based modification of the leds? to avoid needing permutations, you just have each one do something to the whole array of color
      or a spot has all the attributes and you assign it various 'affectors'
      (ie color it, rotatet it, mask off portions of it ?)
    - different signatures for each type?

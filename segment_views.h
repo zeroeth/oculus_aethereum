@@ -25,13 +25,14 @@ class StripView {
 
 
   // Methods
-  void add (Spot&);
+  void add (Spot*);
   void update ();
   void draw   ();
   void clear  ();
   void draw_at (uint8_t, uint32_t);
   void  add_at (uint8_t, uint32_t);
   uint32_t add_colors (uint32_t, uint32_t);
+  void unload_theme ();
 };
 
 #endif

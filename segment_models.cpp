@@ -7,13 +7,14 @@
 // Base Spot Constructor
 
 Spot::Spot (double n_position, uint8_t n_width, uint32_t n_color):
-  position (n_position),
-  width    (n_width),
-  color    (n_color), /* Initializer list */
-  speed    (1.0),
-  multiply (1.0)
+  position  (n_position),
+  width     (n_width),
+  color     (n_color), /* Initializer list */
+  speed     (1.0),
+  amplitude (1.0)
 {
 }
+
 
 
 // Virtual update to be implemented by subclasses
@@ -21,7 +22,7 @@ Spot::Spot (double n_position, uint8_t n_width, uint32_t n_color):
 void Spot::update () { }
 
 
-// Return a 0.0 to 1.0 scaled over (multiply) seconds
+// Return a 0.0 to 1.0 scaled over {speed} seconds
 
 double Spot::percent ()
 {

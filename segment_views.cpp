@@ -14,9 +14,9 @@ StripView::StripView (Adafruit_NeoPixel& n_strip, uint8_t n_starting_led, uint8_
 
 // Add spot to list of spots for this view
 
-void StripView::add (Spot &spot)
+void StripView::add (Spot *spot)
 {
-  spots[spot_count] = &spot;
+  spots[spot_count] = spot;
   spot_count++;
 }
 
@@ -70,8 +70,8 @@ void StripView::clear ()
     // Dim brightness FIXME fails to gracefully fade dim colors (because it runs a lot per second)
     uint32_t color = strip.Color (r * 0.9, g * 0.9, b * 0.9);
 
-    strip.setPixelColor (i, color);
-    //strip.setPixelColor (i, strip.Color(0,0,0));
+    //strip.setPixelColor (i, color);
+    strip.setPixelColor (i, strip.Color(0,0,0));
   }
 }
 
@@ -113,3 +113,14 @@ uint32_t StripView::add_colors (uint32_t color1, uint32_t color2)
   return strip.Color (constrain (r1+r2, 0, 255), constrain (g1+g2, 0, 255), constrain (b1+b2, 0, 255));
 }
 
+
+// Prepare for a new theme
+
+void StripView::unload_theme ()
+{
+  for(int i = 0; i < spot_count; i++)
+  {
+    delete spots[i];
+  }
+  spot_count = 0;
+}

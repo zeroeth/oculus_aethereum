@@ -14,7 +14,7 @@ class Spot {
   // Variables
   double   position;
   double   speed;
-  double   multiply;
+  double   amplitude;
   uint8_t  width;
   uint32_t color;
 
