@@ -107,23 +107,19 @@ namespace Theme {
   // Theme 3
   void theme3 ()
   {
-    Pulsar*         pulsar = new Pulsar  (0.0, 32, cyan);
-    Circler*  spot_circler = new Circler (0.1,  2, pink);
+    Pulsar*     pulsar = new Pulsar  (0.0, 32, cyan);
+    Circler*  circlerL = new Circler (0.0,  2, pink);
+    Circler*  circlerR = new Circler (0.0,  2, pink);
 
    pulsar->speed =  0.8;
-   spot_circler->speed = -0.4;
+   circlerL->speed = -0.5;
+   circlerR->speed =  0.5;
 
-    both_eyes.add ( pulsar);
-    both_eyes.add ( spot_circler);
+    both_eyes.add (pulsar  );
+     left_eye.add (circlerL);
+    right_eye.add (circlerR);
   }
 
-
-  // Wobblers from original code converted
-  void themeOHS ()
-  {
-
-
-  }
 
 
   // Theme 5
@@ -175,6 +171,7 @@ namespace Theme {
   }
 
 
+
   // Theme 4
   void theme4 ()
   {
@@ -203,6 +200,7 @@ namespace Theme {
    right_eye.add (wobbler1);
 
   }
+
 
 
   void theme6()
@@ -234,11 +232,135 @@ namespace Theme {
                                    /* width    */ 8,
                                    /* color    */ yellow);
 
-    pulsarR1->speed = 0.44;
-    pulsarR2->speed = 1.33;
+    pulsarR1->offset = 0.5;
+    pulsarR2->offset = 0.0;
+
+    pulsarR1->speed = 1.2;
+    pulsarR2->speed = 1.2;
 
     right_eye.add (pulsarR1);
     right_eye.add (pulsarR2);
+  }
+
+
+
+  // Theme 7 (half circlers)
+  void theme7 ()
+  {
+    Circler* circlerL1 = new Circler (/* position */ 0.0,
+                                      /* width    */ 8,
+                                      /* color    */ blue);
+
+    Circler* circlerL2 = new Circler (/* position */ 0.5,
+                                      /* width    */ 8,
+                                      /* color    */ white);
+
+
+    Wobbler* wobblerR1 = new Wobbler (/* position */ 0.0,
+                                      /* width    */ 8,
+                                      /* color    */ cyan);
+    Wobbler* wobblerR2 = new Wobbler (/* position */ 0.5,
+                                      /* width    */ 8,
+                                      /* color    */ magenta);
+
+     left_eye.add (circlerL1);
+     left_eye.add (circlerL2);
+    right_eye.add (wobblerR1);
+    right_eye.add (wobblerR2);
+  }
+
+
+
+  // Theme 8 (harmonics)
+  void theme8 ()
+  {
+    Circler* circlerL1 = new Circler (/* position */ 0.0,  /* width */ 1,  /* color */ blue);
+    Circler* circlerL2 = new Circler (/* position */ 0.0,  /* width */ 1,  /* color */ pink);
+
+    circlerL1->speed =  1.1;
+    circlerL2->speed = -1.2;
+
+     left_eye.add (circlerL1);
+     left_eye.add (circlerL2);
+
+    Wobbler* wobblerR1 = new Wobbler (/* position */ 0.0, /* width */ 1, /* color */ cyan);
+    Wobbler* wobblerR2 = new Wobbler (/* position */ 0.5, /* width */ 1, /* color */ cyan);
+
+    Wobbler* wobblerR3 = new Wobbler (/* position */ 0.0, /* width */ 1, /* color */ magenta);
+    Wobbler* wobblerR4 = new Wobbler (/* position */ 0.5, /* width */ 1, /* color */ magenta);
+
+    wobblerR1->speed =  0.5;
+    wobblerR2->speed =  0.5;
+
+    wobblerR3->speed = -0.4;
+    wobblerR4->speed = -0.4;
+
+    right_eye.add (wobblerR1);
+    right_eye.add (wobblerR2);
+    right_eye.add (wobblerR3);
+    right_eye.add (wobblerR4);
+  }
+
+
+
+  // Theme 9 offset stars and speed stars
+  void theme9 ()
+  {
+    Pulsar* pulsarL1 = new Pulsar (/* position */ 0.0, /* width */ 1, /* color */ green2);
+    Pulsar* pulsarL2 = new Pulsar (/* position */ 0.1, /* width */ 1, /* color */ green2);
+    Pulsar* pulsarL3 = new Pulsar (/* position */ 0.4, /* width */ 1, /* color */ green );
+    Pulsar* pulsarL4 = new Pulsar (/* position */ 0.5, /* width */ 1, /* color */ yellow);
+    Pulsar* pulsarL5 = new Pulsar (/* position */ 0.6, /* width */ 1, /* color */ green2);
+    Pulsar* pulsarL6 = new Pulsar (/* position */ 0.8, /* width */ 1, /* color */ green );
+
+    pulsarL2->offset = 0.8;
+    pulsarL3->offset = 0.67;
+    pulsarL4->offset = 0.12;
+    pulsarL5->offset = 0.07;
+    pulsarL6->offset = 0.78;
+
+    left_eye.add (pulsarL1);
+    left_eye.add (pulsarL2);
+    left_eye.add (pulsarL3);
+    left_eye.add (pulsarL4);
+    left_eye.add (pulsarL5);
+    left_eye.add (pulsarL6);
+
+
+    Pulsar* pulsarR1 = new Pulsar (/* position */ 0.0, /* width */ 1, /* color */ green2);
+    Pulsar* pulsarR2 = new Pulsar (/* position */ 0.2, /* width */ 1, /* color */ green );
+    Pulsar* pulsarR3 = new Pulsar (/* position */ 0.3, /* width */ 1, /* color */ green2);
+    Pulsar* pulsarR4 = new Pulsar (/* position */ 0.5, /* width */ 1, /* color */ yellow);
+    Pulsar* pulsarR5 = new Pulsar (/* position */ 0.8, /* width */ 1, /* color */ green2);
+    Pulsar* pulsarR6 = new Pulsar (/* position */ 0.9, /* width */ 1, /* color */ green2);
+
+    pulsarR2->speed = 0.8;
+    pulsarR3->speed = 0.67;
+    pulsarR4->speed = 1.12;
+    pulsarR5->speed = 1.07;
+    pulsarR6->speed = 0.78;
+
+    right_eye.add (pulsarR1);
+    right_eye.add (pulsarR2);
+    right_eye.add (pulsarR3);
+    right_eye.add (pulsarR4);
+    right_eye.add (pulsarR5);
+    right_eye.add (pulsarR6);
+  }
+
+
+  // Theme 10 (multi spiral wind)
+  void theme10 ()
+  {
+
+  }
+
+
+  // Wobblers from original code converted
+  void themeOHS ()
+  {
+
+
   }
 
 
@@ -289,13 +411,25 @@ namespace Theme {
           theme6 ();
           break;
 
+        case 6:
+          theme7 ();
+          break;
+
+        case 7:
+          theme8 ();
+          break;
+
+        case 8:
+          theme9 ();
+          break;
+
         default:
           broken ();
           break;
       }
 
       current_theme++;
-      current_theme %= 6;
+      current_theme %= 9;
     }
   }
 }

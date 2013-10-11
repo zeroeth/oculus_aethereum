@@ -11,7 +11,8 @@ Spot::Spot (double n_position, uint8_t n_width, uint32_t n_color):
   width     (n_width),
   color     (n_color), /* Initializer list */
   speed     (1.0),
-  amplitude (1.0)
+  amplitude (1.0),
+  offset (0)
 {
 }
 
@@ -22,11 +23,11 @@ Spot::Spot (double n_position, uint8_t n_width, uint32_t n_color):
 void Spot::update () { }
 
 
-// Return a 0.0 to 1.0 scaled over {speed} seconds
+// Return a 0.0 to 1.0 scaled over {speed} + {offset} seconds
 
 double Spot::percent ()
 {
-  return (int(millis()*speed) % 1000) * 0.001;
+  return (int((millis() * speed) + (offset*1000)) % 1000) * 0.001;
 }
 
 

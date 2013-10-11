@@ -60,6 +60,7 @@ void StripView::clear ()
 {
   for(uint8_t i = starting_led; i < (starting_led+length); i++)
   {
+    /*
     uint32_t start_color = strip.getPixelColor (i);
     uint8_t r,g,b;
 
@@ -70,7 +71,7 @@ void StripView::clear ()
     // Dim brightness FIXME fails to gracefully fade dim colors (because it runs a lot per second)
     uint32_t color = strip.Color (r * 0.9, g * 0.9, b * 0.9);
 
-    //strip.setPixelColor (i, color);
+    strip.setPixelColor (i, color);*/
     strip.setPixelColor (i, strip.Color(0,0,0));
   }
 }

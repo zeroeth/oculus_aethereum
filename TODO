@@ -2,17 +2,15 @@
 
    SHORTLIST
    ---------
-   * remove similar theme
-   * clock like theme (one rotates per click of other)
-   * amplitude multiply
-   * width to percent
-   * view starting offset change
-   * abstract color and brightness rendering
-   * fading
    * percent offset (for fading between multiple items..)
+   * amplitude multiplier for 0 to 1 percent
+   * width to percent
+   * abstract color and brightness rendering
+   * clock like theme (one rotates per click of other)
+   * fading
+   * view starting position offset
    ---------
 
-   - theme load/unload so we can swap every 10 seconds
    - eye 'render' code which does blend, or average or subtract/multiple
    - render black masks as a color
    - higher fidelity color store so fading works?
@@ -24,13 +22,12 @@
    throbber (widens and shrinks)
    rainbow bar
 
-   - pointers unavoidable because of scope of objects? unless they are global. Safe way to use pointers? to avoid nulls.
-
    - avoid update and add? static list of updates to run, pass in eye to each constructor (might be easier to share themes)
    - convert 8ts to 16ts for longer segments
    **** THIS combining multiple features or state based modification of the leds? to avoid needing permutations, you just have each one do something to the whole array of color
      or a spot has all the attributes and you assign it various 'affectors'
      (ie color it, rotatet it, mask off portions of it ?)
+   - 'global' affectors that work on all the rendered spots, ie after they've moved.. like brightness or hue shift or anything really.
    - different signatures for each type?
    - multiplier? so a wobbler could overlap a few rotations.. and seemingly 'fast' wind or only rotate 50%
 
@@ -52,5 +49,7 @@
 
    theme:
     two opposite circlers that meet perfectly horizontal
+
+  
 */
 

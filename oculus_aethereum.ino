@@ -56,9 +56,9 @@ void loop ()
   both_eyes.update ();
 
   // Draw the spots.
+  both_eyes.draw ();
    left_eye.draw ();
   right_eye.draw ();
-  both_eyes.draw ();
 
   led_strip.show ();
 }
