@@ -2,8 +2,6 @@
 
    SHORTLIST
    ---------
-   * percent offset (for fading between multiple items..)
-   * amplitude multiplier for 0 to 1 percent
    * width to percent
    * abstract color and brightness rendering
    * clock like theme (one rotates per click of other)

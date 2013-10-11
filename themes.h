@@ -22,9 +22,11 @@ namespace Theme {
   uint32_t green   = led_strip.Color (0, 50, 10);
 
   uint32_t green2  = led_strip.Color (0, 50, 0);
+  uint32_t white   = led_strip.Color (20, 20, 20);
 
 
 
+  // Yellow Pulsars and Blue Circlers
   void theme1 ()
   {
     Circler* circleL1 = new Circler (/* position */ 0.0,
@@ -73,7 +75,7 @@ namespace Theme {
 
 
 
-  // Theme 2
+  // Blue/Magenta Grower and Blue/Magenta Wobbler (with 5 rotations around)
   void theme2 ()
   {
     Wobbler* wobble0 = new Wobbler (/* position */ 0.50,
@@ -84,7 +86,10 @@ namespace Theme {
                                     /* width    */ 4,
                                     /* color    */ blue);
 
-    wobble0->speed =  0.5;
+    wobble0->speed = 0.1;
+    wobble0->amplitude = 5.0;
+
+    wobble1->speed = 0.5;
 
     left_eye.add (wobble1);
     left_eye.add (wobble0);
@@ -104,7 +109,7 @@ namespace Theme {
 
 
 
-  // Theme 3
+  // Both Eyes Cyan Pulsar, and Pink Circlers
   void theme3 ()
   {
     Pulsar*     pulsar = new Pulsar  (0.0, 32, cyan);
@@ -122,7 +127,7 @@ namespace Theme {
 
 
 
-  // Theme 5
+  // Tri Red Circler, Quad Green Wobbler
   void theme5 ()
   {
     Wobbler *wobble3 = new Wobbler (/* position */ 0.0,
@@ -172,7 +177,7 @@ namespace Theme {
 
 
 
-  // Theme 4
+  // Green Wobbler, Tri Red Growers
   void theme4 ()
   {
     Grower* grower1 =  new Grower (/* position */ 0.0,
@@ -192,7 +197,8 @@ namespace Theme {
                                      /* color    */ green);
 
 
-    wobbler1->speed = 0.6;
+    wobbler1->speed = 0.75;
+    wobbler1->amplitude = 0.5;
 
     left_eye.add (grower1);
     left_eye.add (grower2);
@@ -203,6 +209,7 @@ namespace Theme {
 
 
 
+  // Half'n'Half Green/Yellow Pulsar, Bi Yellow Wobblers over Green Pulsar
   void theme6()
   {
     Pulsar* pulsarL1 = new Pulsar (/* position */ 0.0,
@@ -244,7 +251,7 @@ namespace Theme {
 
 
 
-  // Theme 7 (half circlers)
+  // Cyan/Magenta Half'n'Half Wobblers, Half'n'Half White/Blue Circlers
   void theme7 ()
   {
     Circler* circlerL1 = new Circler (/* position */ 0.0,
@@ -271,7 +278,7 @@ namespace Theme {
 
 
 
-  // Theme 8 (harmonics)
+  // Bi Wobbler Harmonics and Bi Circler Harmonics
   void theme8 ()
   {
     Circler* circlerL1 = new Circler (/* position */ 0.0,  /* width */ 1,  /* color */ blue);
@@ -303,7 +310,7 @@ namespace Theme {
 
 
 
-  // Theme 9 offset stars and speed stars
+  // Pulsing Stars using Offsets and using Speed
   void theme9 ()
   {
     Pulsar* pulsarL1 = new Pulsar (/* position */ 0.0, /* width */ 1, /* color */ green2);

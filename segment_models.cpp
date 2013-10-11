@@ -12,7 +12,7 @@ Spot::Spot (double n_position, uint8_t n_width, uint32_t n_color):
   color     (n_color), /* Initializer list */
   speed     (1.0),
   amplitude (1.0),
-  offset (0)
+  offset    (0.0)
 {
 }
 
@@ -70,6 +70,7 @@ void Wobbler::update ()
 
   // Scale -1/1 to 0/1
   position  = (sin(position) + 1) * 0.5;
+  position *= amplitude;
   position += start_position;
 }
 
