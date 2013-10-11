@@ -10,20 +10,34 @@ namespace Theme {
   uint8_t       current_theme = 0;
   unsigned long last_millis   = 0;
 
+  uint32_t yellow  = led_strip.Color (50, 50, 0);
+  uint32_t cyan    = led_strip.Color (0, 50, 50);
+
+  uint32_t blue    = led_strip.Color (0, 10, 50);
+  uint32_t magenta = led_strip.Color (50, 0, 50);
+
+  uint32_t pink    = led_strip.Color (50, 0, 10);
+
+  uint32_t red     = led_strip.Color (50, 10, 0);
+  uint32_t green   = led_strip.Color (0, 50, 10);
+
+  uint32_t green2  = led_strip.Color (0, 50, 0);
+
+
 
   void theme1 ()
   {
     Circler* circleL1 = new Circler (/* position */ 0.0,
                                      /* width    */ 6,
-                                     /* color    */ led_strip.Color (0, 5, 5));
+                                     /* color    */ cyan);
 
     Pulsar* pulsarL1 =   new Pulsar (/* position */ 0.5,
                                      /* width    */ 4,
-                                     /* color    */ led_strip.Color (5, 5, 0));
+                                     /* color    */ yellow);
 
     Pulsar* pulsarL2 =   new Pulsar (/* position */ 0.0,
                                      /* width    */ 4,
-                                     /* color    */ led_strip.Color (5, 5, 0));
+                                     /* color    */ yellow);
     circleL1->speed = 1.0;
 
     left_eye.add (circleL1);
@@ -33,19 +47,19 @@ namespace Theme {
 
     Circler* circle1 = new Circler (/* position */ 0.0,
                                     /* width    */ 6,
-                                    /* color    */ led_strip.Color (0, 5, 5));
+                                    /* color    */ cyan);
 
     Pulsar* pulsar1 =   new Pulsar (/* position */ 0.0,
                                     /* width    */ 2,
-                                    /* color    */ led_strip.Color (5, 5, 0));
+                                    /* color    */ yellow);
 
     Pulsar* pulsar2 =   new Pulsar (/* position */ 0.33,
                                     /* width    */ 2,
-                                    /* color    */ led_strip.Color (5, 5, 0));
+                                    /* color    */ yellow);
 
     Pulsar* pulsar3 =   new Pulsar (/* position */ 0.66,
                                     /* width    */ 2,
-                                    /* color    */ led_strip.Color (5, 5, 0));
+                                    /* color    */ yellow);
     circle1->speed = -1.0;
     pulsar1->speed =  2.0;
     pulsar2->speed =  2.0;
@@ -62,13 +76,13 @@ namespace Theme {
   // Theme 2
   void theme2 ()
   {
-    Wobbler* wobble0 = new Wobbler (/* position */ 0.5,
+    Wobbler* wobble0 = new Wobbler (/* position */ 0.50,
                                     /* width    */ 2,
-                                    /* color    */ led_strip.Color (5, 0, 5));
+                                    /* color    */ magenta);
 
     Wobbler* wobble1 = new Wobbler (/* position */ 0.0,
                                     /* width    */ 4,
-                                    /* color    */ led_strip.Color (0, 0, 5));
+                                    /* color    */ blue);
 
     wobble0->speed =  0.5;
 
@@ -78,11 +92,11 @@ namespace Theme {
 
     Grower* grower1 =  new Grower (/* position */ 0.0,
                                    /* width    */ 16,
-                                   /* color    */ led_strip.Color (5, 0, 5));
+                                   /* color    */ magenta);
 
     Grower* grower2 =  new Grower (/* position */ 0.0,
                                    /* width    */ 8,
-                                   /* color    */ led_strip.Color (0, 1, 5));
+                                   /* color    */ blue);
 
     right_eye.add (grower1);
     right_eye.add (grower2);
@@ -93,8 +107,8 @@ namespace Theme {
   // Theme 3
   void theme3 ()
   {
-    Pulsar*         pulsar = new Pulsar  (0.0, 32, led_strip.Color (0, 5, 5));
-    Circler*  spot_circler = new Circler (0.1,  2, led_strip.Color (5, 0, 1));
+    Pulsar*         pulsar = new Pulsar  (0.0, 32, cyan);
+    Circler*  spot_circler = new Circler (0.1,  2, pink);
 
    pulsar->speed =  0.8;
    spot_circler->speed = -0.4;
@@ -117,31 +131,31 @@ namespace Theme {
   {
     Wobbler *wobble3 = new Wobbler (/* position */ 0.0,
                                     /* width    */ 1,
-                                    /* color    */ led_strip.Color (0, 5, 1));
+                                    /* color    */ green);
 
-    Wobbler *wobble4 = new Wobbler (/* position */ 0.25,
+    Wobbler *wobble4 = new Wobbler (/* position */ 0.250,
                                     /* width    */ 1,
-                                    /* color    */ led_strip.Color (0, 5, 1));
+                                    /* color    */ green);
 
-    Wobbler *wobble5 = new Wobbler (/* position */ 0.5,
+    Wobbler *wobble5 = new Wobbler (/* position */ 0.50,
                                     /* width    */ 1,
-                                    /* color    */ led_strip.Color (0, 5, 1));
+                                    /* color    */ green);
 
-    Wobbler *wobble6 = new Wobbler (/* position */ 0.75,
+    Wobbler *wobble6 = new Wobbler (/* position */ 0.750,
                                     /* width    */ 1,
-                                    /* color    */ led_strip.Color (0, 5, 1));
+                                    /* color    */ green);
 
     Circler *circle3 = new Circler (/* position */ 0.0,
                                     /* width    */ 2,
-                                    /* color    */ led_strip.Color (5, 1, 0));
+                                    /* color    */ red);
 
     Circler *circle4 = new Circler (/* position */ 0.33,
                                     /* width    */ 2,
-                                    /* color    */ led_strip.Color (5, 1, 0));
+                                    /* color    */ red);
 
     Circler *circle5 = new Circler (/* position */ 0.66,
                                     /* width    */ 2,
-                                    /* color    */ led_strip.Color (5, 1, 0));
+                                    /* color    */ red);
 
    wobble3->speed = 0.4;
    wobble4->speed = 0.4;
@@ -166,19 +180,19 @@ namespace Theme {
   {
     Grower* grower1 =  new Grower (/* position */ 0.0,
                                    /* width    */ 7,
-                                   /* color    */ led_strip.Color (5, 0, 0));
+                                   /* color    */ red);
 
     Grower* grower2 =  new Grower (/* position */ 0.33,
                                    /* width    */ 7,
-                                   /* color    */ led_strip.Color (5, 0, 0));
+                                   /* color    */ red);
 
     Grower* grower3 =  new Grower (/* position */ 0.66,
                                    /* width    */ 7,
-                                   /* color    */ led_strip.Color (5, 0, 0));
+                                   /* color    */ red);
 
     Wobbler* wobbler1 = new Wobbler (/* position */ 0.0,
                                      /* width    */ 8,
-                                     /* color    */ led_strip.Color (0, 5, 1));
+                                     /* color    */ green);
 
 
     wobbler1->speed = 0.6;
@@ -195,15 +209,15 @@ namespace Theme {
   {
     Pulsar* pulsarL1 = new Pulsar (/* position */ 0.0,
                                    /* width    */ 16,
-                                   /* color    */ led_strip.Color (1, 4, 0));
+                                   /* color    */ green2);
 
     Wobbler* wobbleL1 = new Wobbler (/* position */ 0.0,
                                      /* width    */ 2,
-                                     /* color    */ led_strip.Color (5, 5, 0));
+                                     /* color    */ yellow);
 
-    Wobbler* wobbleL2 = new Wobbler (/* position */ 0.5,
+    Wobbler* wobbleL2 = new Wobbler (/* position */ 0.50,
                                      /* width    */ 2,
-                                     /* color    */ led_strip.Color (5, 5, 0));
+                                     /* color    */ yellow);
 
     pulsarL1->speed = 0.5;
 
@@ -214,11 +228,11 @@ namespace Theme {
 
     Pulsar* pulsarR1 = new Pulsar (/* position */ 0.0,
                                    /* width    */ 8,
-                                   /* color    */ led_strip.Color (1, 4, 0));
+                                   /* color    */ green2);
 
-    Pulsar* pulsarR2 = new Pulsar (/* position */ 0.5,
+    Pulsar* pulsarR2 = new Pulsar (/* position */ 0.50,
                                    /* width    */ 8,
-                                   /* color    */ led_strip.Color (5, 5, 0));
+                                   /* color    */ yellow);
 
     pulsarR1->speed = 0.44;
     pulsarR2->speed = 1.33;
