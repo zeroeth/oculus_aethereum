@@ -19,8 +19,8 @@
           <div id="jump_page">
             
               
-              <a class="source" href="oculus_aethereum.cpp.html">
-                oculus_aethereum.cpp
+              <a class="source" href="oculus_aethereum.ino.html">
+                oculus_aethereum.ino
               </a>
             
               
@@ -41,6 +41,11 @@
               
               <a class="source" href="segment_views.h.html">
                 segment_views.h
+              </a>
+            
+              
+              <a class="source" href="themes.h.html">
+                themes.h
               </a>
             
           </div>
@@ -138,11 +143,14 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="keyword">void</span> add (Spot&amp;);
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">void</span> add (Spot*);
   <span class="keyword">void</span> update ();
   <span class="keyword">void</span> draw   ();
   <span class="keyword">void</span> clear  ();
   <span class="keyword">void</span> draw_at (uint8_t, uint32_t);
+  <span class="keyword">void</span>  add_at (uint8_t, uint32_t);
+  uint32_t add_colors (uint32_t, uint32_t);
+  <span class="keyword">void</span> unload_theme ();
 };
 
 <span class="preprocessor">#endif</span></pre></div></div>

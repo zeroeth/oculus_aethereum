@@ -19,8 +19,8 @@
           <div id="jump_page">
             
               
-              <a class="source" href="oculus_aethereum.cpp.html">
-                oculus_aethereum.cpp
+              <a class="source" href="oculus_aethereum.ino.html">
+                oculus_aethereum.ino
               </a>
             
               
@@ -41,6 +41,11 @@
               
               <a class="source" href="segment_views.h.html">
                 segment_views.h
+              </a>
+            
+              
+              <a class="source" href="themes.h.html">
+                themes.h
               </a>
             
           </div>
@@ -104,8 +109,14 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="keyword">double</span>   position;
+  <span class="keyword">double</span>   speed;
+  <span class="keyword">double</span>   amplitude;
   uint8_t  width;
-  uint32_t color;</pre></div></div>
+  uint32_t color;
+
+  <span class="keyword">double</span>   start_position;
+  uint8_t  start_width;
+  uint32_t start_color;</pre></div></div>
             
         </li>
         
@@ -136,6 +147,7 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="keyword">virtual</span> <span class="keyword">void</span> update ();
+  <span class="keyword">double</span> percent ();
 };</pre></div></div>
             
         </li>
@@ -271,6 +283,53 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Methods</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">void</span> update ();
+};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Grower uses a sin wave to grow and shrink width</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">class</span> Grower : <span class="keyword">public</span> Spot {
+ <span class="keyword">public</span>:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Constructor</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  Grower (<span class="keyword">double</span>, uint8_t, uint32_t);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               <p>Methods</p>
 

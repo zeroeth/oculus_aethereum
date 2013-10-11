@@ -19,8 +19,8 @@
           <div id="jump_page">
             
               
-              <a class="source" href="oculus_aethereum.cpp.html">
-                oculus_aethereum.cpp
+              <a class="source" href="oculus_aethereum.ino.html">
+                oculus_aethereum.ino
               </a>
             
               
@@ -41,6 +41,11 @@
               
               <a class="source" href="segment_views.h.html">
                 segment_views.h
+              </a>
+            
+              
+              <a class="source" href="themes.h.html">
+                themes.h
               </a>
             
           </div>
@@ -86,9 +91,11 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>Spot::Spot (<span class="keyword">double</span> n_position, uint8_t n_width, uint32_t n_color):
-  position (n_position),
-  width (n_width),
-  color (n_color) <span class="comment">/* Initializer list */</span>
+  position  (n_position),
+  width     (n_width),
+  color     (n_color), <span class="comment">/* Initializer list */</span>
+  speed     (<span class="number">1.0</span>),
+  amplitude (<span class="number">1.0</span>)
 {
 }</pre></div></div>
             
@@ -105,11 +112,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="keyword">void</span> Spot::update () { }
-
-
-
-<span class="comment">/*** Circler Methods ******************************************/</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="keyword">void</span> Spot::update () { }</pre></div></div>
             
         </li>
         
@@ -120,14 +123,17 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>Circler Constructor</p>
+              <p>Return a 0.0 to 1.0 scaled over {speed} seconds</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>Circler::Circler (<span class="keyword">double</span> n_position, uint8_t n_width, uint32_t n_color):
-  Spot(n_position, n_width, n_color) <span class="comment">/* Base Class Constructor */</span>
+            <div class="content"><div class='highlight'><pre><span class="keyword">double</span> Spot::percent ()
 {
-}</pre></div></div>
+  <span class="keyword">return</span> (<span class="keyword">int</span>(millis()*speed) % <span class="number">1000</span>) * <span class="number">0.001</span>;
+}
+
+
+<span class="comment">/*** Circler Methods ******************************************/</span></pre></div></div>
             
         </li>
         
@@ -138,19 +144,15 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>Scale from 0 to 1 once a second</p>
+              <p>Circler Constructor</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="keyword">void</span> Circler::update ()
+            <div class="content"><div class='highlight'><pre>Circler::Circler (<span class="keyword">double</span> n_position, uint8_t n_width, uint32_t n_color):
+  Spot(n_position, n_width, n_color) <span class="comment">/* Base Class Constructor */</span>
 {
-  position = millis() % <span class="number">1000</span>;
-  position *= <span class="number">0.001</span>;
-}
-
-
-
-<span class="comment">/*** Wobbler Methods ******************************************/</span></pre></div></div>
+  start_position = position;
+}</pre></div></div>
             
         </li>
         
@@ -161,14 +163,18 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Wobbler Constructor</p>
+              <p>Scale from 0 to 1 once a second</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>Wobbler::Wobbler (<span class="keyword">double</span> n_position, uint8_t n_width, uint32_t n_color):
-  Spot(n_position, n_width, n_color) <span class="comment">/* Base Class Constructor */</span>
+            <div class="content"><div class='highlight'><pre><span class="keyword">void</span> Circler::update ()
 {
-}</pre></div></div>
+  position = percent () + start_position;
+}
+
+
+
+<span class="comment">/*** Wobbler Methods ******************************************/</span></pre></div></div>
             
         </li>
         
@@ -179,14 +185,20 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>Scale from 0 to 6.28 every second</p>
+              <p>Wobbler Constructor</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="keyword">void</span> Wobbler::update ()
+            <div class="content"><div class='highlight'><pre>Wobbler::Wobbler (<span class="keyword">double</span> n_position, uint8_t n_width, uint32_t n_color):
+  Spot(n_position, n_width, n_color) <span class="comment">/* Base Class Constructor */</span>
 {
-  position = millis() % <span class="number">1000</span>;
-  position *= <span class="number">0.00628</span>;</pre></div></div>
+  start_position = position;
+}
+
+
+
+<span class="keyword">void</span> Wobbler::update ()
+{</pre></div></div>
             
         </li>
         
@@ -197,16 +209,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>Scale -1/1 to 0/1</p>
+              <p>Scale from 0 to 6.28 every second</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  position = (sin(position) + <span class="number">1</span>) * <span class="number">0.5</span>;
-}
-
-
-
-<span class="comment">/*** Pulsar Methods ******************************************/</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>  position = percent () * M_PI * <span class="number">2</span>;</pre></div></div>
             
         </li>
         
@@ -217,19 +224,17 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>Pulsar Constructor</p>
+              <p>Scale -1/1 to 0/1</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>Pulsar::Pulsar (<span class="keyword">double</span> n_position, uint8_t n_width, uint32_t n_color):
-  Spot(n_position, n_width, n_color) <span class="comment">/* Base Class Constructor */</span>
-{
+            <div class="content"><div class='highlight'><pre>  position  = (sin(position) + <span class="number">1</span>) * <span class="number">0.5</span>;
+  position += start_position;
 }
 
-<span class="keyword">void</span> Pulsar::update ()
-{
-  <span class="keyword">double</span> value = millis() % <span class="number">1000</span>;
-  value *= <span class="number">0.00628</span>;</pre></div></div>
+
+
+<span class="comment">/*** Pulsar Methods ******************************************/</span></pre></div></div>
             
         </li>
         
@@ -240,11 +245,19 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>Scale -1/1 to 0/1</p>
+              <p>Pulsar Constructor</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  value = (sin(value) + <span class="number">1</span>) * <span class="number">0.5</span>;</pre></div></div>
+            <div class="content"><div class='highlight'><pre>Pulsar::Pulsar (<span class="keyword">double</span> n_position, uint8_t n_width, uint32_t n_color):
+  Spot(n_position, n_width, n_color) <span class="comment">/* Base Class Constructor */</span>
+{
+  start_color = color;
+}
+
+<span class="keyword">void</span> Pulsar::update ()
+{
+  <span class="keyword">double</span> value = percent () * M_PI * <span class="number">2</span>;</pre></div></div>
             
         </li>
         
@@ -255,14 +268,104 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>Brightness 0 to 5</p>
+              <p>Scale -1/1 to 0/1</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  value *= <span class="number">10</span>;
+            <div class="content"><div class='highlight'><pre>  value = (sin(value) + <span class="number">1</span>) * <span class="number">0.5</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Extract original r g b</p>
 
-  <span class="comment">/* TODO extract original colors, also maybe store basic color primitives? rgb or hsl on the models */</span>
-  color = led_strip.Color (value, value, <span class="number">0</span>);
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  uint8_t r,g,b;
+
+  r = (uint8_t)(start_color &gt;&gt; <span class="number">16</span>),
+  g = (uint8_t)(start_color &gt;&gt;  <span class="number">8</span>),
+  b = (uint8_t)(start_color &gt;&gt;  <span class="number">0</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Dim brightness</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  color = led_strip.Color (r * value, g * value, b * value);
+}
+
+
+
+<span class="comment">/*** Grower Methods ******************************************/</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Grower Constructor</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>Grower::Grower (<span class="keyword">double</span> n_position, uint8_t n_width, uint32_t n_color):
+  Spot(n_position, n_width, n_color) <span class="comment">/* Base Class Constructor */</span>
+{
+  start_width = width;
+}
+
+<span class="keyword">void</span> Grower::update ()
+{
+  <span class="keyword">double</span> value = percent () * M_PI * <span class="number">2</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Scale -1/1 to 0/1</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  value = (sin(value) + <span class="number">1</span>) * <span class="number">0.5</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Width 0 to 10</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  width = value * start_width;
+
 }</pre></div></div>
             
         </li>
