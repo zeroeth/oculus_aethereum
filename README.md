@@ -22,7 +22,7 @@ Instructions
 Annotated Source
 ----------------
 
-http://zeroeth.github.io/oculus_aethereum/docs/oculus_aethereum.cpp.html
+http://zeroeth.github.io/oculus_aethereum/docs/oculus_aethereum.ino.html
 
 
 Nerdy Notes for the Curious
